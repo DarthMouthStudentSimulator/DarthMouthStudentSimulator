@@ -1,5 +1,8 @@
 # LLM Agent-Based Simulation of Student Activities and Mental Health Using Smartphone Sensing Data
 
+[![Project Website](https://img.shields.io/badge/Project%20Website-Visit%20Site-blue)](https://darthmouthstudentsimulator.github.io/)
+[![Paper](https://img.shields.io/badge/Paper-arXiv-red)](https://arxiv.org/abs/2508.02679)
+
 A modular pipeline for analyzing student life data using Large Language Models (LLMs). This project aggregates student behavioral data and generates insightful weekly summaries using OpenAI and Anthropic APIs.
 
 ## ✨ Features
