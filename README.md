@@ -42,7 +42,7 @@ A modular pipeline for analyzing student life data using Large Language Models (
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/DarthMouthStudentSimulator/DarthMouthStudentSimulator.git
    cd student-life-analysis-pipeline
    ```
 
