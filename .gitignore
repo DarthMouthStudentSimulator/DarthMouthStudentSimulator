@@ -1,0 +1,5 @@
+.env
+u*_emotion_status.json
+u*_emotion_status_history.jsonl
+all_data/
+test.ipynb

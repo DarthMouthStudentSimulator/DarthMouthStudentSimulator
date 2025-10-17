@@ -5,12 +5,14 @@ from dotenv import load_dotenv
 from agents.anthropic import AnthropicClient
 from agents.openai import OpenAIClient
 from agents import LLMClient
+import argparse
 
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from scripts.student import StudentLifePipeline
 
 load_dotenv()
+OPENAI_API = os.getenv("OPENAI_API")
 
 def get_matched_folders(base_path: str):
     """u01-u59"""
@@ -24,7 +26,7 @@ def get_matched_folders(base_path: str):
     return matched_folders
 
 def main():
-    base_path = "./student_info"
+    base_path = "./all_data"
     matched_folders = get_matched_folders(base_path)
     print("Matched folders:", matched_folders)
 
@@ -38,7 +40,8 @@ def main():
             "deadline_path": "./dataset/education/deadlines.csv",
             "uid": uid,
             "client_type": "openai",  # or "anthropic" or "openai"
-            "api_key": os.getenv("OPENAI_API", "..."),
+            "api_key": os.getenv("OPENAI_API", OPENAI_API),
+            "setup" :args.setup
         }
 
         required_files = [
@@ -58,9 +61,13 @@ def main():
 
         pipeline = StudentLifePipeline(llm_client, config)
 
-        pipeline.run_full_pipeline(config["uid"], range(1, 11))
+        pipeline.run_full_pipeline(config["uid"], range(1, 11),range(1,8))
 
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--setup", choices=["llm", "agent"], default="llm")
+    args = parser.parse_args()
+
     main()
